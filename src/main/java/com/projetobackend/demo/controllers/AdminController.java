@@ -1,6 +1,7 @@
 package com.projetobackend.demo.controllers;
 
 import com.projetobackend.demo.models.AdminModel;
+import com.projetobackend.demo.models.ClientModel;
 import com.projetobackend.demo.repository.AdminRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,16 @@ public class AdminController {
     @GetMapping
     public ResponseEntity<List<AdminModel>> getAllAdmins() {
         return ResponseEntity.ok(adminRepository.findAll());
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Object> deleteAdmin(@PathVariable(value = "id")int id){
+        Optional<AdminModel> admin0 = adminRepository.findById(id);
+        if (admin0.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Funcionario não encontrado");
+        }
+        adminRepository.delete(admin0.get());
+        return ResponseEntity.status(HttpStatus.OK).body("Funcionario removido com sucesso");
     }
 
 }
