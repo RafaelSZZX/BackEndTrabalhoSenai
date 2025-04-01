@@ -9,15 +9,21 @@ import java.util.UUID;
 @Entity
 @Table(name = "TBPRODUTO")
 
-public class ProductModel implements Serializable {
-
-    private static final long serialVersionUID = 1L;
+public class ProductModel {
 
     @Id@GeneratedValue(strategy = GenerationType.AUTO)
 
-    private UUID idProduct;
+    private int id;
     private String nmProduct;
     private BigDecimal vlProduct;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getNmProduct() {
         return nmProduct;
@@ -25,22 +31,6 @@ public class ProductModel implements Serializable {
 
     public void setNmProduct(String nmProduct) {
         this.nmProduct = nmProduct;
-    }
-
-    public UUID getIdProduct() {
-        return idProduct;
-    }
-
-    public void setIdProduct(UUID idProduct) {
-        this.idProduct = idProduct;
-    }
-
-    public String getName() {
-        return nmProduct;
-    }
-
-    public void setName(String name) {
-        this.nmProduct = name;
     }
 
     public BigDecimal getVlProduct() {
