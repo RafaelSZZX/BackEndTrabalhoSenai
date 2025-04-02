@@ -12,7 +12,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @CrossOrigin(origins = "*")
@@ -24,37 +23,13 @@ public class ProductController {
 
     @PostMapping
     public ResponseEntity<ProductModel> saveProduct(@RequestBody @Valid ProductRecordDto productRecordDto) {
-        var productModel = new ProductModel();
-        BeanUtils.copyProperties(productRecordDto, productModel);
-        return ResponseEntity.status(HttpStatus.CREATED).body(productRepository.save(productModel));
+        var produtModel = new ProductModel();
+        BeanUtils.copyProperties(productRecordDto, produtModel);
+        return ResponseEntity.status(HttpStatus.CREATED).body(productRepository.save(produtModel));
     }
 
     @GetMapping
     public ResponseEntity<List<ProductModel>> getAllProducts() {
         return ResponseEntity.status(HttpStatus.OK).body(productRepository.findAll());
-    }
-
-    @GetMapping("/{id}")
-    public ResponseEntity<Object> getOneProduct(@PathVariable(value="id") int id,
-                                                @RequestBody @Valid ProductRecordDto productRecordDto) {
-
-        Optional<ProductModel> product0 = productRepository.findAllById(id);
-        if (product0.isEmpty()) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Produto não encontrado");
-        }
-        var productModel = product0.get();
-        BeanUtils.copyProperties(productRecordDto, productModel);
-        return ResponseEntity.status(HttpStatus.OK).body(productRepository.save(productModel));
-    }
-
-
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Object> deleteProduct(@PathVariable(value = "id")int id){
-        Optional<ProductModel> product0 = productRepository.findById(id);
-        if (product0.isEmpty()) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Produto não encontrado");
-        }
-        productRepository.delete(product0.get());
-        return ResponseEntity.status(HttpStatus.OK).body("Produto removido com sucesso");
     }
 }

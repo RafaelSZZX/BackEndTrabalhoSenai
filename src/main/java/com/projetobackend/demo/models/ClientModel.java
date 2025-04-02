@@ -8,17 +8,36 @@ import jakarta.persistence.*;
 public class ClientModel {
 
     @Id@GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private int cdEmpresa;
+    private int cdCliente;
+    private String nuCpf;
     private String nmCliente;
-    private String nmEmail;
-    private String nmTelefone;
+    private String dsEmail;
+    private String dsSenha;
+    private String nuTelefone;
 
-    public int getId() {
-        return id;
+    public int getCdEmpresa() {
+        return cdEmpresa;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setCdEmpresa(int cdEmpresa) {
+        this.cdEmpresa = cdEmpresa;
+    }
+
+    public int getCdCliente() {
+        return cdCliente;
+    }
+
+    public void setCdCliente(int cdCliente) {
+        this.cdCliente = cdCliente;
+    }
+
+    public String getNuCpf() {
+        return nuCpf;
+    }
+
+    public void setNuCpf(String nuCpf) {
+        this.nuCpf = nuCpf;
     }
 
     public String getNmCliente() {
@@ -29,19 +48,27 @@ public class ClientModel {
         this.nmCliente = nmCliente;
     }
 
-    public String getNmEmail() {
-        return nmEmail;
+    public String getDsEmail() {
+        return dsEmail;
     }
 
-    public void setNmEmail(String nmEmail) {
-        this.nmEmail = nmEmail;
+    public void setDsEmail(String dsEmail) {
+        this.dsEmail = dsEmail;
     }
 
-    public String getNmTelefone() {
-        return nmTelefone;
+    public String getDsSenha() {
+        return dsSenha;
     }
 
-    public void setNmTelefone(String nmTelefone) {
-        this.nmTelefone = nmTelefone;
+    public void setDsSenha(String dsSenha) {
+        this.dsSenha = dsSenha;
+    }
+
+    public String getNuTelefone() {
+        return nuTelefone;
+    }
+
+    public void setNuTelefone(String nuTelefone) {
+        this.nuTelefone = nuTelefone;
     }
 }

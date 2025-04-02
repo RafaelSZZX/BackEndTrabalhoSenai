@@ -2,24 +2,43 @@ package com.projetobackend.demo.models;
 
 import jakarta.persistence.*;
 
+import java.util.Date;
+
 @Entity
 @Table(name="TBADMIN")
 public class AdminModel {
 
     @Id@GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private int cdEmpresa;
+    private int cdAdmin;
+    private Date dtNascimento;
     private String nmAdmin;
-    private String nmEmail;
-    private int nmCpf;
-    private String nmTelefone;
-    private String nmEndereco;
+    private String dsEmail;
+    private String nuCnpj;
+    private String nuSenha;
 
-    public int getId() {
-        return id;
+    public int getCdEmpresa() {
+        return cdEmpresa;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setCdEmpresa(int cdEmpresa) {
+        this.cdEmpresa = cdEmpresa;
+    }
+
+    public int getCdAdmin() {
+        return cdAdmin;
+    }
+
+    public void setCdAdmin(int cdAdmin) {
+        this.cdAdmin = cdAdmin;
+    }
+
+    public Date getDtNascimento() {
+        return dtNascimento;
+    }
+
+    public void setDtNascimento(Date dtNascimento) {
+        this.dtNascimento = dtNascimento;
     }
 
     public String getNmAdmin() {
@@ -30,35 +49,27 @@ public class AdminModel {
         this.nmAdmin = nmAdmin;
     }
 
-    public String getNmEmail() {
-        return nmEmail;
+    public String getDsEmail() {
+        return dsEmail;
     }
 
-    public void setNmEmail(String nmEmail) {
-        this.nmEmail = nmEmail;
+    public void setDsEmail(String dsEmail) {
+        this.dsEmail = dsEmail;
     }
 
-    public int getNmCpf() {
-        return nmCpf;
+    public String getNuCnpj() {
+        return nuCnpj;
     }
 
-    public void setNmCpf(int nmCpf) {
-        this.nmCpf = nmCpf;
+    public void setNuCnpj(String nuCnpj) {
+        this.nuCnpj = nuCnpj;
     }
 
-    public String getNmTelefone() {
-        return nmTelefone;
+    public String getNuSenha() {
+        return nuSenha;
     }
 
-    public void setNmTelefone(String nmTelefone) {
-        this.nmTelefone = nmTelefone;
-    }
-
-    public String getNmEndereco() {
-        return nmEndereco;
-    }
-
-    public void setNmEndereco(String nmEndereco) {
-        this.nmEndereco = nmEndereco;
+    public void setNuSenha(String nuSenha) {
+        this.nuSenha = nuSenha;
     }
 }
