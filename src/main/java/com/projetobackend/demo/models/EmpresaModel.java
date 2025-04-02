@@ -3,17 +3,26 @@ package com.projetobackend.demo.models;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "TBEMPRESA>")
+@Table(name = "TBEMPRESA")
 public class EmpresaModel {
 
     @Id@GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private int idEmpresa;
+    private String nmEmpresa;
 
-    public int getId() {
-        return id;
+    public String getNmEmpresa() {
+        return nmEmpresa;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setNmEmpresa(String nmEmpresa) {
+        this.nmEmpresa = nmEmpresa;
+    }
+
+    public int getIdEmpresa() {
+        return idEmpresa;
+    }
+
+    public void setIdEmpresa(int idEmpresa) {
+        this.idEmpresa = idEmpresa;
     }
 }
