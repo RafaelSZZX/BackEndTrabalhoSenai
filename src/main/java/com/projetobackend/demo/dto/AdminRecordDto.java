@@ -1,4 +1,15 @@
 package com.projetobackend.demo.dto;
 
-public record AdminRecordDto() {
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+
+import java.util.Date;
+
+public record AdminRecordDto(
+        @NotNull int idAdmin,
+        @NotBlank String nmAdmin,
+        @NotBlank String nuSenha,
+        @NotBlank String dsEmail,
+        @NotBlank String nuCnpj,
+        @NotBlank Date dtNascimento) {
 }

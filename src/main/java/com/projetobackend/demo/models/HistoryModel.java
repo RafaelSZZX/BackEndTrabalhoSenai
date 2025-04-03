@@ -9,14 +9,18 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "TBCARRINHO")
-public class HistoryModel implements Serializable {
+public class HistoryModel {
+
+    @Id@GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "idCarrinho")
+    private int id;
 
     @ManyToOne
-    @JoinColumn(name = "id_empresa", nullable = false)
+    @JoinColumn(name = "idEmpresa", nullable = false)
     private EmpresaModel empresa;
 
     @ManyToOne
-    @JoinColumn(name = "id_produto", nullable = false)
+    @JoinColumn(name = "idProduct", nullable = false)
     private ProductModel product;
 
     private String data;
@@ -43,5 +47,13 @@ public class HistoryModel implements Serializable {
 
     public void setData(String data) {
         this.data = data;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

@@ -8,19 +8,20 @@ import jakarta.persistence.*;
 public class ClientModel {
 
     @Id@GeneratedValue(strategy = GenerationType.AUTO)
-    private int cdCliente;
+    @Column(name = "idCliente")
+    private int idCliente;
     private String nuCpf;
     private String nmCliente;
     private String dsEmail;
     private String dsSenha;
     private String nuTelefone;
 
-    public int getCdCliente() {
-        return cdCliente;
+    public int getIdCliente() {
+        return idCliente;
     }
 
-    public void setCdCliente(int cdCliente) {
-        this.cdCliente = cdCliente;
+    public void setIdCliente(int idCliente) {
+        this.idCliente = idCliente;
     }
 
     public String getNuCpf() {

@@ -9,7 +9,8 @@ import java.util.Date;
 public class AdminModel {
 
     @Id@GeneratedValue(strategy = GenerationType.AUTO)
-    private int cdAdmin;
+    @Column(name = "idAdmin")
+    private int idAdmin;
     private Date dtNascimento;
     private String nmAdmin;
     private String dsEmail;
@@ -17,23 +18,15 @@ public class AdminModel {
     private String nuSenha;
 
     @ManyToOne
-    @JoinColumn(name = "id_empresa", nullable = false)
+    @JoinColumn(name = "idEmpresa", nullable = false)
     private EmpresaModel empresa;
 
-    public EmpresaModel getEmpresa() {
-        return empresa;
+    public int getIdAdmin() {
+        return idAdmin;
     }
 
-    public void setEmpresa(EmpresaModel empresa) {
-        this.empresa = empresa;
-    }
-
-    public int getCdAdmin() {
-        return cdAdmin;
-    }
-
-    public void setCdAdmin(int cdAdmin) {
-        this.cdAdmin = cdAdmin;
+    public void setIdAdmin(int idAdmin) {
+        this.idAdmin = idAdmin;
     }
 
     public Date getDtNascimento() {
@@ -74,5 +67,13 @@ public class AdminModel {
 
     public void setNuSenha(String nuSenha) {
         this.nuSenha = nuSenha;
+    }
+
+    public EmpresaModel getEmpresa() {
+        return empresa;
+    }
+
+    public void setEmpresa(EmpresaModel empresa) {
+        this.empresa = empresa;
     }
 }

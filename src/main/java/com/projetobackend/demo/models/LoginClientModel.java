@@ -3,21 +3,32 @@ package com.projetobackend.demo.models;
 import jakarta.persistence.*;
 import jakarta.persistence.Table;
 
-import java.io.Serializable;
-
 @Entity
 @Table(name = "TBLOGIN")
-public class LoginClientModel implements Serializable {
+public class LoginClientModel {
+
+    @Id@GeneratedValue(strategy = GenerationType.AUTO)
+    private int idLogin;
 
     @ManyToOne
-    @JoinColumn(name = "id_cliente", nullable = false)
+    @JoinColumn(name = "idCliente", nullable = false)
     private ClientModel cliente;
 
    @ManyToOne
    @JoinColumn(name = "email", nullable = false)
+
+
    private ClientModel dsEmail;
 
    private String password;
+
+    public int getIdLogin() {
+        return idLogin;
+    }
+
+    public void setIdLogin(int idLogin) {
+        this.idLogin = idLogin;
+    }
 
     public ClientModel getCliente() {
         return cliente;

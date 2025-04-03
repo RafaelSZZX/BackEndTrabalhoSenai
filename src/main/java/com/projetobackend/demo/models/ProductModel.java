@@ -9,13 +9,13 @@ import java.math.BigDecimal;
 public class ProductModel {
 
     @Id@GeneratedValue(strategy = GenerationType.AUTO)
-    private int idProduto;
+    private int id;
     private String nmProduto;
     private BigDecimal vlProduto;
 
     // chave estrangeira EmpresaMOdel
     @ManyToOne
-    @JoinColumn(name = "id_empresa", nullable = false)
+    @JoinColumn(name = "idEmpresa", nullable = false)
     private EmpresaModel empresa;
 
     public EmpresaModel getEmpresa() {
@@ -26,12 +26,12 @@ public class ProductModel {
         this.empresa = empresa;
     }
 
-    public int getIdProduto() {
-        return idProduto;
+    public int getId() {
+        return id;
     }
 
-    public void setIdProduto(int idProduto) {
-        this.idProduto = idProduto;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNmProduto() {
