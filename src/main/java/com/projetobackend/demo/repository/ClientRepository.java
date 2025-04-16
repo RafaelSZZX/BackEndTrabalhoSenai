@@ -9,7 +9,8 @@ import java.util.Optional;
 @Repository
 public interface ClientRepository extends JpaRepository<ClientModel, Integer> {
 
-    Optional<ClientModel> findById(int id);
+    Optional<ClientModel> findById();
 
     Optional<ClientModel> findAllById(int id);
+
 }

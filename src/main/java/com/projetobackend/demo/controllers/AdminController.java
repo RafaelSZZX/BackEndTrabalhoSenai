@@ -14,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @CrossOrigin(origins = "*")
@@ -33,6 +34,15 @@ public class AdminController {
     @GetMapping
     public ResponseEntity<List<AdminModel>> getAllAdmins() {
         return ResponseEntity.status(HttpStatus.OK).body(adminRepository.findAll());
+    }
+
+    @GetMapping("/id")
+    public ResponseEntity<AdminModel> getAdminById(@PathVariable(value = "id")int id) {
+        Optional<AdminModel> adminModel = adminRepository.findById(id);
+        if (adminModel.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        }
+        return ResponseEntity.status(HttpStatus.OK).body(adminModel.get());
     }
 
 }
