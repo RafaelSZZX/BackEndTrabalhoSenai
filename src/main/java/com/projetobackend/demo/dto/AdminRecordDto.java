@@ -6,7 +6,7 @@ import jakarta.validation.constraints.NotNull;
 import java.util.Date;
 
 public record AdminRecordDto(
-        @NotNull int idAdmin,
+        @NotNull int id,
         @NotBlank String nmAdmin,
         @NotBlank String nuSenha,
         @NotBlank String dsEmail,

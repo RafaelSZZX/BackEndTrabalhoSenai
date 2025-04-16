@@ -11,7 +11,7 @@ import java.io.Serializable;
 @Table(name = "TBCARRINHO")
 public class HistoryModel {
 
-    @Id@GeneratedValue(strategy = GenerationType.AUTO)
+    @Id@GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "idCarrinho")
     private int id;
 

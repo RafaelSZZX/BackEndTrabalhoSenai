@@ -23,10 +23,10 @@ public class HistoryController {
 
     @PostMapping
     public ResponseEntity<HistoryModel> saveHistory(@RequestBody @Valid HistoryRecordDto historyRecordDto) {
-        var historyCar = new HistoryModel();
+            var historyCar = new HistoryModel();
 
-        BeanUtils.copyProperties(historyRecordDto, historyCar);
-        return ResponseEntity.status(HttpStatus.CREATED).body(historyRepository.save(historyCar));
+            BeanUtils.copyProperties(historyRecordDto, historyCar);
+            return ResponseEntity.status(HttpStatus.CREATED).body(historyRepository.save(historyCar));
     }
 
     @GetMapping

@@ -7,7 +7,7 @@ import jakarta.persistence.Table;
 @Table(name = "TBLOGIN")
 public class LoginClientModel {
 
-    @Id@GeneratedValue(strategy = GenerationType.AUTO)
+    @Id@GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idLogin;
 
     @ManyToOne

@@ -2,12 +2,13 @@ package com.projetobackend.demo.models;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "TBEMPRESA")
 public class EmpresaModel {
 
-    @Id@GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "idEmpresa")
+    @Id@GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idEmpresa;
     private String nmEmpresa;
 

@@ -7,21 +7,20 @@ import jakarta.persistence.*;
 @Table(name = "TBCLIENTE")
 public class ClientModel {
 
-    @Id@GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "idCliente")
-    private int idCliente;
+    @Id@GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
     private String nuCpf;
     private String nmCliente;
     private String dsEmail;
     private String dsSenha;
     private String nuTelefone;
 
-    public int getIdCliente() {
-        return idCliente;
+    public int getId() {
+        return id;
     }
 
-    public void setIdCliente(int idCliente) {
-        this.idCliente = idCliente;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getNuCpf() {

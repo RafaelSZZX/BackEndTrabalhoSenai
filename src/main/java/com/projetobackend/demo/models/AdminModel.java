@@ -8,9 +8,8 @@ import java.util.Date;
 @Table(name="TBADMIN")
 public class AdminModel {
 
-    @Id@GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "idAdmin")
-    private int idAdmin;
+    @Id@GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
     private Date dtNascimento;
     private String nmAdmin;
     private String dsEmail;
@@ -21,12 +20,12 @@ public class AdminModel {
     @JoinColumn(name = "idEmpresa", nullable = false)
     private EmpresaModel empresa;
 
-    public int getIdAdmin() {
-        return idAdmin;
+    public int getId() {
+        return id;
     }
 
-    public void setIdAdmin(int idAdmin) {
-        this.idAdmin = idAdmin;
+    public void setId(int id) {
+        this.id = id;
     }
 
     public Date getDtNascimento() {

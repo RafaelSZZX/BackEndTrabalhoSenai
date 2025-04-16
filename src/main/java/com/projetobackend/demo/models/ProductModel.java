@@ -8,14 +8,13 @@ import java.math.BigDecimal;
 @Table(name = "TBPRODUTO")
 public class ProductModel {
 
-    @Id@GeneratedValue(strategy = GenerationType.AUTO)
+    @Id@GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String nmProduto;
     private BigDecimal vlProduto;
 
-    // chave estrangeira EmpresaMOdel
     @ManyToOne
-    @JoinColumn(name = "idEmpresa", nullable = false)
+    @JoinColumn(name = "idEmpresa")
     private EmpresaModel empresa;
 
     public EmpresaModel getEmpresa() {
@@ -49,4 +48,5 @@ public class ProductModel {
     public void setVlProduto(BigDecimal vlProduto) {
         this.vlProduto = vlProduto;
     }
+
 }
